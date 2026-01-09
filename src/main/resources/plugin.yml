@@ -1,0 +1,17 @@
+name: mWaves
+version: '1.1'
+main: blockstock.plugin.mWaves.mWaves
+api-version: '1.21'
+authors: [ musbabaff ]
+website: musbabaff.com
+depend:
+  - MythicMobs
+softdepend:
+  - PlaceholderAPI
+  - ProtocolLib
+commands:
+  mwaves:
+    description: Access the main mWaves control panel and commands.
+    usage: /mwaves <reload|start|stop|info|force_start|highlight>
+    aliases:
+      - mw

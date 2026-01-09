@@ -1,0 +1,14 @@
+system:
+  no-permission: "&cSorry, but you don`t have permission."
+  reload-plugin: "&aReload complete!"
+  player-only: "&cThis command is only available to players!"
+another:
+  # %count% - number of remaining creatures
+  # %wave% - wave number
+  info: "&e%count% entity left."
+highlight:
+  # %count% - number of highlighted mobs
+  # %visibility% - description of backlight visibility
+  success: "&a%count% mobs are highlighted! The highlight will disappear in 10 seconds.."
+  visibility-admin: "just for you"
+  visibility-all: "for all players"

@@ -1,0 +1,14 @@
+system:
+  no-permission: "&cÜzgünüm, bu komutu kullanmak için yetkiniz yok."
+  reload-plugin: "&aEklenti başarıyla yenilendi!"
+  player-only: "&cBu komut sadece oyuncular tarafından kullanılabilir!"
+another:
+  # %count% - kalan yaratık sayısı
+  # %wave% - dalga numarası
+  info: "&eKalan yaratık sayısı: &6%count%"
+highlight:
+  # %count% - işaretlenen mob sayısı
+  # %visibility% - görünürlük açıklaması
+  success: "&a%count% mob işaretlendi! İşaretleme 10 saniye sonra kaybolacak.."
+  visibility-admin: "sadece senin için"
+  visibility-all: "tüm oyuncular için"

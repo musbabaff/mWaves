@@ -1,0 +1,128 @@
+# +-------------------------------------------------------+
+# |                       mWaves                          |
+# |            Advanced Mob Wave Management               |
+# |                                                       |
+# |   Author: musbabaff                                   |
+# |   Support: musbabaff.com                              |
+# +-------------------------------------------------------+
+#
+# Need help? Check the documentation or join our Discord.
+# All messages support Color Codes (& or Hex).
+
+# Debug mode (outputs detailed information to the console)
+debug: false
+
+# Language type: en, tr or ru
+language: en
+
+# Message color system:
+# LEGACY - colors via & (&a, &c etc.)
+# LEGACY_ADVANCED - LEGACY + hex via &## (&##FF5555)
+# MINIMESSAGE - modern <color> format (1.17+)
+serializer: LEGACY
+
+# Permission required to execute the info command
+info_command_permission: "mwaves.user"
+
+# === Advanced Settings ===
+
+# Automatically restart waves after the last one is completed
+auto_restart: true
+
+# Random spawn spread radius (in blocks)
+# Mobs will spawn at a random point within this radius of the coordinate
+spawn_radius: 5
+
+# Default mob health multiplier (can be overridden per wave)
+# 1.0 = normal health, 2.0 = double health
+default_health_multiplier: 1.0
+
+# Wave start/complete broadcast messages
+wave_messages:
+  enabled: true
+  # Message when a wave starts (placeholders: %wave%)
+  start: "&e&l>>> &6Wave %wave% has begun! &e&l<<<"
+  # Message when a wave is cleared (placeholders: %wave%, %next_wave%, %delay%)
+  complete: "&a&l>>> &2Wave %wave% cleared! Next wave in %delay% seconds. &a&l<<<"
+  # Message when all waves are finished and restarting
+  all_complete: "&6&l>>> All waves completed! Restarting from Wave 1... &6&l<<<"
+
+# Sound effects for wave events
+sounds:
+  enabled: true
+  # Sound played when a wave starts
+  wave_start:
+    sound: "ENTITY_ENDER_DRAGON_GROWL"
+    volume: 1.0
+    pitch: 1.0
+  # Sound played when a wave is completed
+  wave_complete:
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    volume: 1.0
+    pitch: 1.0
+  # Sound played when a wave mob dies
+  mob_death:
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 0.5
+    pitch: 1.2
+
+# BossBar for tracking wave progress
+bossbar:
+  # Display mode for BossBar:
+  # ALL - show to everyone
+  # ADMIN - show only to administrators with mwaves.bossbar permission
+  # NONE - disable BossBar
+  mode: "ALL"
+  # BossBar Text (placeholders: %wave%, %remaining%, %total%)
+  title: "&6Wave %wave% &7- &eRemaining: %remaining%/%total%"
+  # Colors: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
+  color: "YELLOW"
+  # Styles: SOLID, SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20
+  style: "SEGMENTED_10"
+
+# Mob highlighting settings for /mwaves highlight
+highlight:
+  # Highlighting mode:
+  # ALL - any player with mwaves.highlight can highlight mobs (visible to all)
+  # ADMIN - only admins with mwaves.admin can highlight mobs
+  #         With ProtocolLib: Highlight visible only to the executor
+  #         Without ProtocolLib: Highlight visible to everyone
+  mode: "ADMIN"
+
+# Wave Configurations
+# count - Wave number, must be in sequential order
+# mobs - List of mobs: "MobName:chance" (chance from 0 to 100)
+# coordinates - spawn locations (x,y,z or world,x,y,z)
+# mobs-count - total number of mobs to spawn in this wave
+# exceptions - delay before the next wave starts (in seconds)
+# health-multiplier - (optional) health modifier for this specific wave
+# title - (optional) custom BossBar title for this wave
+# rewards - (optional) commands to execute upon wave completion
+Waves:
+  - count: 1
+    mobs:
+      - "MobName:50"
+      - "AnotherMob:50"
+    coordinates:
+      - "100,100,100"
+      - "200,100,200"
+    mobs-count: 15
+    exceptions: 10
+    # health-multiplier: 1.5
+    # title: "&cThe First Encounter"
+    # rewards:
+    #   - "say Wave 1 completed!"
+    #   - "give @a diamond 1"
+
+  - count: 2
+    mobs:
+      - "BossMob:30"
+      - "EliteMob:70"
+    coordinates:
+      - "100,100,100"
+    mobs-count: 20
+    exceptions: 15
+    health-multiplier: 2.0
+    title: "&4&lBOSS WAVE!"
+    rewards:
+      - "say Wave 2 has been defeated!"
